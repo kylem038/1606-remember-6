@@ -2,10 +2,10 @@
   <header>
     <h1>Reminders</h1>
   </header>
-  {{#each reminder as |reminder|}}
+  {{#each model as |reminder|}}
   <article class='spec-reminder-item'>
     <h3>{{reminder.title}}</h3>
-    <h2>{{reminder.data}}</h2>
+    <h2>{{reminder.date}}</h2>
     <p>{{reminder.notes}}</p>
   </article>
   {{/each}}
