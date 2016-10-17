@@ -12,12 +12,12 @@ export default Ember.Route.extend({
       if(stringDate) {
         reminderForm.set('date', new Date(stringDate));
       } else {
-        reminderForm.set('date', new Date());        
+        reminderForm.set('date', new Date());
       }
       let reminderProps = reminderForm.getProperties('title', 'date', 'notes');
       let record = this.get('store').createRecord('reminder', reminderProps);
-      record.save().then(() => {
-        return this.transitionTo('reminders.new');
+      record.save().then((reminder) => {
+          this.transitionTo('reminders.reminder', reminder);
       });
     }
   }

@@ -1,0 +1,16 @@
+<form class='spec-edit-reminder--form' {{action 'editReminder' model on='submit'}}>
+  <label>
+    Title
+    {{input class='spec-edit-title-input' value=model.title}}
+  </label>
+  <label>
+    Date
+    {{input type='date' class='spec-edit-date-input' value=model.date}}
+  </label>
+  <label>
+    Notes
+    {{textarea class='spec-edit-notes-input' value=model.notes}}
+  </label>
+  <button type='submit' class='spec-save-edit'>Submit</button>
+</form>
+{{outlet}}

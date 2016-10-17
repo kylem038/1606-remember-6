@@ -45,8 +45,24 @@ test('adds an individual reminder on form submit', function(assert) {
   click('.spec-submit-reminder');
 
   andThen(function() {
-    assert.equal(currentURL(), '/new');
+    assert.equal(currentURL(), '/6');
     assert.equal(find('.spec-reminder-item').length, 6, 'should show one additional reminder');
     assert.equal(find('.spec-reminder-item:last').text().trim(), 'Tom Cruise', 'should show new reminder title');
+  });
+});
+
+test('an edit content button that allows the user to edit that reminder, save it and goes back to that reminder after', function(assert) {
+
+  visit('/');
+  click('.spec-reminder-item:first');
+  click('.spec-edit-reminder-button');
+  fillIn('.spec-edit-title-input', 'Do Something');
+  fillIn('.spec-edit-date-input', '11/15/2018');
+  fillIn('.spec-edit-notes-input', 'Because I am bored');
+  click('.spec-save-edit');
+
+  andThen(function() {
+    assert.equal(currentURL(), '/1');
+    assert.equal(find('.spec-reminder-item:first').text().trim(), 'Do Something', 'should show edited title');
   });
 });
