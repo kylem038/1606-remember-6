@@ -1,18 +1,6 @@
 <h2>New Reminder</h2>
 
-<form class='spec-add-reminder--form' {{action 'createReminder' model on='submit'}}>
-  <label>
-    Title
-    {{input class='spec-new-title-input' value=model.title}}
-  </label>
-  <label>
-    Date
-    {{input type='date' class='spec-new-date-input' value=model.date}}
-  </label>
-  <label>
-    Notes
-    {{textarea class='spec-new-note-input' value=model.notes}}
-  </label>
-  <button type='submit' class='spec-submit-reminder'>Submit</button>
-</form>
+{{#reminder-form class='spec-add' reminder=model submit=(action 'createReminder' model)}}
+{{/reminder-form}}
+
 {{outlet}}

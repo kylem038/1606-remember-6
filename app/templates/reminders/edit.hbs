@@ -1,4 +1,8 @@
-<form class='spec-edit-reminder--form' {{action 'editReminder' model on='submit'}}>
+
+{{#reminder-form class='spec-edit' reminder=model submit=(action 'editReminder' model)}}
+{{/reminder-form}}
+
+<!-- <form class='spec-edit-reminder--form' {{action 'editReminder' model on='submit'}}>
   <label>
     Title
     {{input class='spec-edit-title-input' value=model.title}}
@@ -12,5 +16,5 @@
     {{textarea class='spec-edit-notes-input' value=model.notes}}
   </label>
   <button type='submit' class='spec-save-edit'>Submit</button>
-</form>
+</form> -->
 {{outlet}}

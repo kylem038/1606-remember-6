@@ -39,9 +39,9 @@ test('adds an individual reminder on form submit', function(assert) {
 
   visit('/');
   click('.spec-add-new-reminder');
-  fillIn('.spec-new-title-input', 'Tom Cruise');
-  fillIn('.spec-new-date-input', '12/11/2017');
-  fillIn('.spec-new-note-input', 'Star in every movie ever');
+  fillIn('.spec-add .spec-title-input', 'Tom Cruise');
+  fillIn('.spec-add .spec-date-input', '12/11/2017');
+  fillIn('.spec-add .spec-note-input', 'Star in every movie ever');
   click('.spec-submit-reminder');
 
   andThen(function() {
@@ -56,10 +56,10 @@ test('an edit content button that allows the user to edit that reminder, save it
   visit('/');
   click('.spec-reminder-item:first');
   click('.spec-edit-reminder-button');
-  fillIn('.spec-edit-title-input', 'Do Something');
-  fillIn('.spec-edit-date-input', '11/15/2018');
-  fillIn('.spec-edit-notes-input', 'Because I am bored');
-  click('.spec-save-edit');
+  fillIn('.spec-edit .spec-title-input', 'Do Something');
+  fillIn('.spec-edit .spec-date-input', '11/15/2018');
+  fillIn('.spec-edit .spec-note-input', 'Because I am bored');
+  click('.spec-submit-reminder');
 
   andThen(function() {
     assert.equal(currentURL(), '/1');
