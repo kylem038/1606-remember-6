@@ -61,4 +61,6 @@ a {
 .reminder {
   background-color: #FFF8B5;
   flex: 1;
+  width: 100vw;
+  height:100%;
 }
