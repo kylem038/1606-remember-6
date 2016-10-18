@@ -1,7 +1,64 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  font-family: 'Lato', sans-serif;
+}
+
+.main-content {
+  display: flex;
+  flex: 1;
+}
+
+.remember-title {
+  margin: 0;
+  padding: 20px;
+  height: 50px;
+
+  background-color: #0077C0;
+  color: #FFFFFF;
+  font-size: 3em;
+  font-weight: 700;
+  text-align: center;
+}
+
+.reminders-aside {
+  flex: 0 0 14em;
+}
+
+.single-reminder {
+  height: 100px;
+  padding: 3px;
+  border-bottom: 2px solid #FAFAFA;
+
+  background-color: #C7EEFF;
+  color: #1D242B;
+}
+
+a {
+  color: #1D242B;
+  text-decoration: none;
+  font-weight: 700;
+}
+
 .active {
-  background-color: #AFFFFF;
+  font-weight: 900;
+  font-style: italic;
+}
+
+.add-reminder-button {
+  height: 50px;
+  width: 350px;
+  border: none;
+  z-index: 1;
+
+  background-color: #0077C0;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 1.5em;
 }
 
 .reminder {
   background-color: #FFF8B5;
+  flex: 1;
 }

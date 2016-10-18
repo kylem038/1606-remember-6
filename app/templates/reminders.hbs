@@ -1,15 +1,28 @@
-<section class="reminders">
-  {{#each model as |reminder|}}
-  <article >
-    {{#link-to 'reminders.reminder' reminder class='spec-reminder-item'}}
-      {{reminder.title}}
+<div class='reminders-aside'>
+  <section class='reminders'>
+    {{#each model as |reminder|}}
+      <article class='single-reminder'>
+        {{#link-to 'reminders.reminder'
+                    reminder
+                    class='spec-reminder-item'
+        }}
+          {{reminder.title}}
+        {{/link-to}}
+        <p class='single-reminder-date'>
+          {{reminder.date}}
+        </p>
+      </article>
+    {{/each}}
+    {{#link-to 'reminders.new'
+                class='spec-add-new-reminder
+                add-reminder-button'
+                tagName='button'
+    }}
+    Add new reminder
     {{/link-to}}
-    <p>{{reminder.date}}</p>
-  </article>
-  {{/each}}
-</section>
-{{#link-to 'reminders.new' class='spec-add-new-reminder' tagName='button'}}
-  Add new reminder
-{{/link-to}}
+  </section>
+</div>
 
-{{outlet}}
+<div class='content-body'>
+  {{outlet}}
+</div>
