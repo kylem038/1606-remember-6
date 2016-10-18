@@ -7,7 +7,7 @@
 <button
   class='spec-revert-button'
   {{action 'revertReminder' model on='click'}}
-  hidden={{unless reminder.hasDirtyAttributes 'true'}}
+  hidden={{unless model.hasDirtyAttributes 'true'}}
 >Revert</button>
 {{/reminder-form}}
 
