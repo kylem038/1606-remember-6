@@ -83,3 +83,25 @@ test('is able to revert to old state while editing', function(assert) {
     assert.equal(find('.spec-reminder-item:first').text().trim(), 'Do Something', 'should show edited title');
   });
 });
+
+test('is able to delete a reminder from the reminder list', function(assert) {
+
+  visit('/');
+  click('.spec-destroy-reminder:first');
+
+  andThen(function() {
+    assert.equal(Ember.$('.spec-reminder-item').length, 4, 'should show 1 less reminder');
+  });
+});
+
+test('is able to delete a reminder from the individual reminder page', function(assert) {
+
+  visit('/');
+  click('.spec-reminder-item:first');
+  click('.spec-destroy-reminder:last');
+
+  andThen(function() {
+    assert.equal(currentURL(), '/');
+    assert.equal(Ember.$('.spec-reminder-item').length, 4, 'should show 1 less reminder');
+  });
+});

@@ -5,6 +5,7 @@
   {{#link-to 'reminders.edit' model class='spec-edit-reminder-button' tagName='button'}}
     Edit
   {{/link-to}}
+  {{reusable-button click=('destroyIndividualReminder' model)}}
 </section>
 
 {{outlet}}
