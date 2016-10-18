@@ -12,4 +12,9 @@
     {{textarea class='spec-note-input' value=reminder.notes}}
   </label>
   <button type='submit' class='spec-submit-reminder'>Submit</button>
+  <button
+    class='spec-revert-button'
+    {{action 'revertReminder' on='click'}}
+    hidden={{unless reminder.hasDirtyAttributes 'true'}}
+  >Revert</button>
 </form>
