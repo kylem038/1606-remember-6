@@ -10,11 +10,14 @@ export default Ember.Controller.extend({
       }
       editReminderForm.set('notes', editReminderForm.get('notes'));
       editReminderForm.save().then((reminder) => {
-        this.transitionToRoute('reminders.reminder', reminder)
+        this.transitionToRoute('reminders.reminder', reminder);
       });
       return false;
-    }
+    },
 
-    // revertReminder()
+    revertReminder(reminder) {
+      reminder.rollbackAttributes();
+      this.transitionToRoute('reminders.reminder', reminder);
+    }
   }
 });

@@ -4,6 +4,11 @@
   reminder=model
   submit=(action 'editReminder' model)
 }}
+<button
+  class='spec-revert-button'
+  {{action 'revertReminder' model on='click'}}
+  hidden={{unless reminder.hasDirtyAttributes 'true'}}
+>Revert</button>
 {{/reminder-form}}
 
 {{outlet}}

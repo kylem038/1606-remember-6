@@ -66,3 +66,20 @@ test('an edit content button that allows the user to edit that reminder, save it
     assert.equal(find('.spec-reminder-item:first').text().trim(), 'Do Something', 'should show edited title');
   });
 });
+
+test('is able to revert to old state while editing', function(assert) {
+
+  visit('/');
+  click('.spec-reminder-item:first');
+  click('.spec-edit-reminder-button');
+  fillIn('.spec-edit .spec-title-input', 'Do Something');
+  click('.spec-submit-reminder');
+  click('.spec-edit-reminder-button');
+  fillIn('.spec-edit .spec-title-input', 'Do Something Else');
+  click('.spec-revert-button');
+
+  andThen(function() {
+    assert.equal(currentURL(), '/1');
+    assert.equal(find('.spec-reminder-item:first').text().trim(), 'Do Something', 'should show edited title');
+  });
+});
